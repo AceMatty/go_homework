@@ -1,4 +1,4 @@
-module github.com/acematty/go_homework/hw01_hello_now
+module github.com/AceMatty/go_homework/hw01_hello_now
 
 go 1.14
 
