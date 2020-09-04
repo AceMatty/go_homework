@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/beevik/ntp"
 	"io"
 	"os"
 	"time"
+
+	"github.com/beevik/ntp"
 )
 func main(){
 	ntptime, err := ntp.Time("time.nist.gov")
