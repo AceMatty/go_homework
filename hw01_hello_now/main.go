@@ -12,6 +12,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("current time:", ntptime)
-	fmt.Println("exact time:", time.Now())
+	fmt.Println("current time:", ntptime.Format("2006-01-02 15:04:05"))
+	fmt.Println("exact time:", time.Now().Format("2006-01-02 15:04:05"))
 }
