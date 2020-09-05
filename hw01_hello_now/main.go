@@ -6,7 +6,8 @@ import (
 
 	"github.com/beevik/ntp"
 )
-func main(){
+
+func main() {
 	ntptime, err := ntp.Time("time.nist.gov")
 	if err != nil {
 		panic(err)
