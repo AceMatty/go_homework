@@ -9,6 +9,9 @@ import (
 
 func main() {
 	ntptime, err := ntp.Time("0.beevik-ntp.pool.ntp.org")
+	if err != nil {
+		panic(err)
+	}
 	exect, err := ntp.Query("0.beevik-ntp.pool.ntp.org")
 	if err != nil {
 		panic(err)
