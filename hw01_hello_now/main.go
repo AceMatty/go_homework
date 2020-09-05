@@ -16,6 +16,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("current time:", ntptime.Format("2006-01-02 15:04:05"))
-	fmt.Println("exact time:", time.Now().Add(exect.ClockOffset).Format("2006-01-02 15:04:05"))
+	times:= time.Now().Add(exect.ClockOffset)
+	fmt.Println("current time:", ntptime.Format("2006-01-02 15:04:05 -0700 MST"))
+	fmt.Println("exact time:", times.Format("2006-01-02 15:04:05 -0700 MST"))
 }
