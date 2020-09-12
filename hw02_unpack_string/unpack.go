@@ -18,17 +18,15 @@ func Unpack(str string) (string, error) {
 		return "", ErrInvalidString
 	}
 	for i := 0; i < len(str); i++ {
-		if i+1 < len(str) {
-			if unicode.IsDigit(rune(str[i+1])) {
-				if !unicode.IsDigit(rune(str[i+2])) {
-					dig, _ := strconv.Atoi(string(str[i+1]))
-					strb.WriteString(strings.Repeat(string(str[i]), dig))
-				} else {
-					return "", ErrInvalidString
-				}
-			} else if !unicode.IsDigit(rune(str[i])) {
-				strb.WriteString(string(str[i]))
+		if i+1 < len(str) && unicode.IsDigit(rune(str[i+1])) {
+			if !unicode.IsDigit(rune(str[i+2])) {
+				dig, _ := strconv.Atoi(string(str[i+1]))
+				strb.WriteString(strings.Repeat(string(str[i]), dig))
+			} else {
+				return "", ErrInvalidString
 			}
+		} else if !unicode.IsDigit(rune(str[i])) {
+			strb.WriteString(string(str[i]))
 		}
 		if i == len(str)-1 && !unicode.IsDigit(rune(str[i])) {
 			strb.WriteString(string(str[i]))
