@@ -28,9 +28,9 @@ func Unpack(str string) (string, error) {
 		} else if !unicode.IsDigit(rune(str[i])) {
 			strb.WriteString(string(str[i]))
 		}
-		if i == len(str)-1 && !unicode.IsDigit(rune(str[i])) {
-			strb.WriteString(string(str[i]))
-		}
+		//if i == len(str)-1 && !unicode.IsDigit(rune(str[i])) {
+		//	strb.WriteString(string(str[i]))
+		//}
 	}
 	return strb.String(), nil
 }
