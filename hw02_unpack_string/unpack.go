@@ -9,17 +9,6 @@ import (
 
 var ErrInvalidString = errors.New("invalid string")
 
-//func main() {
-//	strs := []string{"a4bc2d5e", "abccd", "3abc", "45", "aaa10b", "", "aaa0b"}
-//	for ind := range strs {
-//		str, err := Unpack(strs[ind])
-//		if err != nil {
-//			log.Println(err)
-//		}
-//		fmt.Println(str)
-//	}
-//
-//}
 func Unpack(str string) (string, error) {
 	var strb strings.Builder
 	if len(str) == 0 {
