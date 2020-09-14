@@ -9,8 +9,6 @@ import (
 
 var ErrInvalidString = errors.New("invalid string")
 
-
-
 func Unpack(str string) (string, error) {
 	var strb strings.Builder
 	runes := []rune(str)
