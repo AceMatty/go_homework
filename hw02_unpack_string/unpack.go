@@ -1,4 +1,4 @@
-package hw02_unpack_string //nolint:golint,stylecheck
+package main //hw02_unpack_string //nolint:golint,stylecheck
 
 import (
 	"errors"
@@ -19,15 +19,21 @@ func Unpack(str string) (string, error) {
 		return "", ErrInvalidString
 	}
 	for i := 0; i < len(runes); i++ {
-		if i+1 < len(runes) && unicode.IsDigit(runes[i]) {
-			if !unicode.IsDigit(runes[i+2]) {
+		if i+1 < len(runes) && !unicode.IsDigit(runes[i]) {
+			if unicode.IsDigit(runes[i+1]) {
 				dig, _ := strconv.Atoi(string(runes[i+1]))
 				strb.WriteString(strings.Repeat(string(runes[i]), dig))
 			} else {
+				strb.WriteString(string(runes[i]))
+			}
+		}
+		if i == len(runes)-1 && !unicode.IsDigit(runes[i]) {
+			strb.WriteString(string(runes[i]))
+		}
+		if i+1 < len(runes) && unicode.IsDigit(runes[i]) {
+			if unicode.IsDigit(runes[i+1]) {
 				return "", ErrInvalidString
 			}
-		} else if !unicode.IsDigit(runes[i]) {
-			strb.WriteString(string(runes[i]))
 		}
 	}
 	return strb.String(), nil
