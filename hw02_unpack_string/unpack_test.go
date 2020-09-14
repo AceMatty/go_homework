@@ -40,7 +40,7 @@ func TestUnpack(t *testing.T) {
 		{
 			input:    "",
 			expected: "",
-			err:      ErrInvalidString,
+			err: nil,
 		},
 		{
 			input:    "aaa0b",
